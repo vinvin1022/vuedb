@@ -90,7 +90,10 @@ routes.beforeEach((to, from, next) => {
   else {
     next();
   }
- 
 });
+
+routes.afterEach((to, from) => {
+    console.log(to,from)
+})
 
 export default routes;

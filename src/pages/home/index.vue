@@ -27,13 +27,6 @@ import Myheader from '../../components/header'
 import Mybanner from '../../components/banner'
 import MyNewsitem from './newsitem'
 
-
-var arrData = [
-	{id:1,title:"《加勒比海盗》14年老粉给你带来所有彩蛋和深埋梗",des:"此影评送给那些不离不弃的老粉和船长杰克·斯派罗",autoer:"豆掰",imgurl:require("../../assets/images/news2.jpg"),from:"来自栏目:一周热门影视"},
-	{id:2,title:"《加勒比海盗》14年老粉给你带来所有彩蛋和深埋梗",des:"此影评送给那些不离不弃的老粉和船长杰克·斯派罗",autoer:"天下",imgurl:require("../../assets/images/news2.jpg"),from:"来自栏目:一周热门影视"},
-	{id:3,title:"《加勒比海盗》14年老粉给你带来所有彩蛋和深埋梗",des:"此影评送给那些不离不弃的老粉和船长杰克·斯派罗",autoer:"悠悠",imgurl:require("../../assets/images/news2.jpg"),from:"来自栏目:一周热门影视"},
-	{id:4,title:"《加勒比海盗》14年老粉给你带来所有彩蛋和深埋梗",des:"此影评送给那些不离不弃的老粉和船长杰克·斯派罗",autoer:"了了",imgurl:require("../../assets/images/news2.jpg")}
-];
 export default{
 	components:{Myheader,Mybanner,MyNewsitem},
 	mounted:function(){
@@ -41,17 +34,14 @@ export default{
 	},
 	methods:{
 		search:function(){
-			console.log(this.axios.get)
+		
 			this.axios.get('./static/data/homeData.json',{
 				withCredentials:true
 			}).then((response) => {
 console.log(response)
 				for(var key in response.data){
-					console.log(response.data)
 					response.data[key].imgurl = require("../../../static/images/"+response.data[key].imgurl)
 				}
-			
-				console.log(response.data)
 				this.arrData=response.data
 
 			}).catch(function(err){
